@@ -1,3 +1,4 @@
+package library;
 /*
  * LibraryUI.java former Comp302.java
  *
