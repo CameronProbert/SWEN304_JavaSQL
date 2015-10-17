@@ -34,6 +34,7 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.sql.*;
+import java.math.*;
 
 import static java.util.Calendar.DAY_OF_MONTH;
 import static java.util.Calendar.MONTH;
@@ -71,6 +72,8 @@ public class LibraryUI extends JFrame {
 
 	// A parent for modal dialogs
 	private JFrame dialogParent = this;
+
+	private Connection db;
 
 	/**
 	 * Create a new LibraryUI object - showing an authentication dialog then
