@@ -86,7 +86,7 @@ public class LibraryModel {
 					userid, password);
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.exit(0);
+			closeDBConnection();
 		}
 	}
 
@@ -753,8 +753,13 @@ public class LibraryModel {
 			if (con == null || con.isClosed())
 				return;
 
-			// Rollback any active transaction first
-			rollback();
+			try {
+				System.out.println("Attempting to rollback...");
+				con.rollback();
+				con.setAutoCommit(true);
+			} catch (SQLException e) {
+				System.out.println("Nothing to rollback.");
+			}
 
 			// Close the connection
 			con.close();
